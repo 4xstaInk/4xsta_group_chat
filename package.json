@@ -1,0 +1,36 @@
+{
+  "name": "4xsta_group_chat",
+  "version": "1.0.0",
+  "author": "Meshullam Joshua Chansa Mulenga <meshullammulenga@gmail.com>",
+  "license": "ISC",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "@vueuse/core": "^5.0.3",
+    "firebase": "^8.7.0",
+    "vue": "^3.0.5",
+    "vue-firebase": "^1.0.8"
+  },
+  "devDependencies": {
+    "@iconify/json": "^1.1.331",
+    "@tailwindcss/aspect-ratio": "^0.2.0",
+    "@tailwindcss/forms": "^0.3.2",
+    "@tailwindcss/line-clamp": "^0.2.0",
+    "@tailwindcss/typography": "^0.4.0",
+    "@vitejs/plugin-vue": "^1.1.4",
+    "@vue/compiler-sfc": "^3.0.5",
+    "autoprefixer": "^10.2.5",
+    "node-sass": "^6.0.1",
+    "postcss": "^8.2.10",
+    "sass-loader": "^12.1.0",
+    "tailwindcss": "^2.0.4",
+    "vite": "^2.0.0-beta.70",
+    "vite-plugin-components": "^0.11.1",
+    "vite-plugin-compression": "^0.2.4",
+    "vite-plugin-fonts": "^0.2.2",
+    "vite-plugin-icons": "^0.6.2"
+  }
+}
