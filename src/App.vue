@@ -16,7 +16,25 @@
   <div 
   v-if="state.username == '' || state.username == null"
   class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
-  <div class="relative py-3 w-11/12 max-w-xl sm:mx-auto">
+  <div 
+
+  class="mx-auto"
+  >
+    <img
+  src="../public/logo.png"
+  class="h-40 w-40 mx-auto"
+   />
+  </div>
+  <div 
+  class="mt-2 p-4 mx-auto"
+  >
+   <h1
+      id="label"
+      class="text-3xl text-sky-500 font-bold"
+      >4xsta GroupChat</h1>
+  </div>
+  
+  <div class="relative py-3 mx-auto w-11/12 max-w-xl sm:mx-auto">
     <div class="relative p-8 bg-white shadow-sm sm:rounded-xl">
       <form 
       @submit.prevent="Login"
@@ -31,7 +49,7 @@
         </div>
         <button 
         type="submit"
-         class="w-full bg-indigo-600 text-white p-3 rounded-md">Login</button>
+         class="w-full bg-sky-500 text-white p-3 rounded-md">Login</button>
       </form>
     </div>
   </div>
@@ -74,8 +92,8 @@
     <div class="flex flex-col mx-auto w-11/12">
       <div class="flex-none h-20 flex flex-row justify-between items-center p-5">
         <div class="flex flex-col space-y-1">
-            <button class="flex text-sm mr-auto" @click="Logout"
-      ><mdi:logout /> Logout</button>
+            <button class="flex text-sm mt-7 mr-auto" @click="Logout"
+      ><mdi:logout /> Leave</button>
           <strong class="flex text-3xl text-sky-500"><mdi:account /> <span class="ml-2">{{state.username}}</span></strong>
 
           <h1 
@@ -108,13 +126,20 @@
       </div>
 
       <div class="flex-none h-40 p-4 pt-5" id="textarea-container">
+        <p 
+        v-if="typing_data != ''"
+        class="text-green-500">{{state.username}} is typing...</p>
           <form  @submit.prevent="SendMessage">
         <textarea 
+        @keyup="typingMethod"
+        @mouseleave="clearTypingData"
+        @mouseenter="typing_data = 'typing'"
         v-model="inputMessage"
         id="textarea"
         placeholder="Write a message..."
         class="w-full h-full outline-none focus:border-sky-600 hover:border-sky-600 rounded-3xl p-4 shadow-lg"></textarea>
         <button 
+        @click="clearTypingData"
         id="button"
         type="submit"
         :class="(inputMessage == '' ? 'hidden':'text-green-600')" class="text-3xl float-right"><mdi:send /></button>
@@ -133,6 +158,7 @@
 <script>
 import {reactive, onMounted, ref} from 'vue';
 import db from "./db.js";
+
 
  export default{
    setup(){
@@ -198,11 +224,31 @@ import db from "./db.js";
        Logout,
        state
      }
-   }
+   },
+   data() {
+     return {
+       typing_data:''
+     }
+   },
+   methods: {
+     typingMethod() {
+      this.typing_data = this.inputMessage
+     },
+     clearTypingData(){
+       this.typing_data = ''
+     }
+   },
  }
 </script>
 
 <style>
+#logo{
+  margin-left: auto;
+  margin-right:auto;
+}
+#label{
+
+}
 #textarea-container{
     position:relative
 }
