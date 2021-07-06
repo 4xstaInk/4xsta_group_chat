@@ -21,7 +21,7 @@
   class="mx-auto"
   >
     <img
-  src="../public/logo.png"
+  src="/logo.png"
   class="h-40 w-40 mx-auto"
    />
   </div>
@@ -116,7 +116,7 @@
               <div :class="(message.username == state.username ? 'flex text-sm text-sky-600 ml-auto' : 'flex text-sm text-gray-600 mr-auto')"
               ><mdi:account /> {{message.username}}</div>
             <div 
-            :class="(message.username == state.username ? 'bg-sky-100  rounded-tl-3xl rounded-bl-3xl rounded-br-3xl p-5 border p-5 w-50' : 'bg-white rounded-tr-3xl rounded-br-3xl rounded-bl-3xl p-5 border')"
+            :class="(message.username == state.username ? 'bg-sky-100  rounded-tl-3xl rounded-bl-3xl rounded-br-3xl p-2 border p-2 w-50' : 'bg-white rounded-tr-3xl rounded-br-3xl rounded-bl-3xl p-2 border')"
             >
               {{message.content}}
             </div>
